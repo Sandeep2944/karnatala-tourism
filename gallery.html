@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Karunadu Image Gallery</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet/gallery.css">
+</head>
+<body class="bg-light">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
+      <a class="navbar-brand nav-link text-uppercase font-weight-bold text-white ml-2" href="index.html">Karunadu</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link text-uppercase font-weight-bold mr-2 text-white">home</a></li>
+          <li class="nav-item"><a href="index.html#packages" class="nav-link text-uppercase font-weight-bold mr-2 text-white">packages</a></li>
+          <li class="nav-item"><a href="index.html#services" class="nav-link text-uppercase font-weight-bold mr-2 text-white">services</a></li>
+          <li class="nav-item active"><a href="gallery.html" class="nav-link text-uppercase font-weight-bold text-white mr-4">gallery</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="spacer"></div>
+  </header>
+
+  <main class="container-fluid">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-12 text-center">
+          <h1 class="display-4 font-weight-bold text-warning">ALL&thinsp;<span class="text-dark">IMAGES</span></h1>
+          <p class="text-muted">Every image available in this project folder.</p>
+        </div>
+      </div>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </div>
+  </main>
+
+  <footer class="page-footer font-small unique-color-dark mt-5">
+    <div class="bg-warning">
+      <div class="container">
+        <div class="row py-3 d-flex align-items-center">
+          <div class="col-md-6 text-center text-md-left mb-2 mb-md-0">
+            <h6 class="mb-0">Get connected with us on social networks!</h6>
+          </div>
+          <div class="col-md-6 text-center text-md-right">
+            <a class="fb-ic"><i class="fab fa-facebook-f fa-lg mr-4"></i></a>
+            <a class="tw-ic"><i class="fab fa-twitter fa-lg mr-4"></i></a>
+            <a class="gplus-ic"><i class="fab fa-google-plus-g fa-lg mr-4"></i></a>
+            <a class="li-ic"><i class="fab fa-linkedin-in fa-lg mr-4"></i></a>
+            <a class="ins-ic"><i class="fab fa-instagram fa-lg"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copyright text-center py-3 text-white bg-dark">
+      © 2018 Copyright: karunadu.com
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

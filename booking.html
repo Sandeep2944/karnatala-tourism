@@ -1,0 +1,138 @@
+
+    <main ng-controller="bookingController">
+        <div class="row" style="margin-top: 5rem">
+
+          </div>
+       <div class="container " >
+              <form  class="mb-3 shadow  rounded  bg-white" style="border-width:medium;">
+                  <div class="row justify-content-center ">
+                      <div class="col-md-6 text-center">
+                        <h3 class=" mt-2 py-2 font-weight-bold text-warning">BOOKING&thinsp;<span style="color:black">DETAILS</span></h3>
+                      </div>
+
+                  </div>
+                  <div class="row mt-3 ml-2 justify-content-center">
+                      <div class="form-group col-md-3" ng-init="countad=1">
+                            <label for="adult">Number of adults</label>
+                            <div id="adult">
+                              <button type="button" class="btn btn-secondary mr-4" ng-click="decradult()"><b>-</b></button>&thinsp;<b class="text-center" style="font-size:2rem;">{{countad}}</b>&thinsp;<button type="button" class="btn btn-secondary ml-4" ng-click="incradult()"><b>+</b></button>
+                            </div>
+                      </div>
+                      <div class="form-group col-md-3"  ng-init="countcd=0">
+                            <label for="childrens">Number of children</label>
+                            <div id="childrens">
+                                <button type="button" class="btn btn-secondary mr-4 " ng-click="decrchild()"><b>-</b></button>&thinsp;<b class="text-center" style="font-size:2rem;">{{countcd}}</b>&thinsp;<button type="button" class="btn btn-secondary ml-4" ng-click="incrchild()"><b>+</b></button>
+                              </div> 
+
+                      </div>
+                      
+                      
+
+                  </div>
+                  
+                 
+                  <div class="row mt-5  justify-content-center">
+                      <div class="col-md-3 text-center   font-weight-bold ">
+                          <h5><b>Total price &thinsp;Rs </b> {{price}}</h5>
+
+                      </div>
+                      <div class="col-md-3 " ng-hide="paybutton">
+                        <button type="button" class=" ml-2 btn btn-primary" ng-click="dateclash()">Pay</button>
+                      </div>
+
+                  </div>
+                  <div class="row mt-3">
+
+                  </div>
+                  <div ng-show="payment">
+                    
+                      <div class="row  mt-2 justify-content-center">
+                            <div class="col-md-6 text-center">
+                              <h3 class="ml-2 mt-2 py-2 font-weight-bold text-warning">PAYMENT&thinsp;<span style="color:black">OPTIONS</span></h3>
+                            </div>
+      
+                        </div>
+                        <div class="row ml-2 mr-1 justify-content-center">
+                          <div class="form-group col-md-3">
+                              <label for="cardname">Name on card</label>
+                              <input type="text" class="form-control" id="cardname" minlength="10" ng-model="cardname" required>
+    
+                          </div>
+                          <div class="form-group col-md-3 ">
+                              <label for="cardno">Card number</label>
+                              <input type="number" class="form-control" id="cardno"  ng-model="cardno" minlength="16" required >
+    
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label for="cvc">CVC</label>
+                            <input type="text" class="form-control" id="cvc"  maxlength="3" minlength="3" ng-model="cvc" required>
+  
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="doe">Date of expiration</label>
+                          <input type="date" class="form-control" id="doe"   ng-model="dateofexpire" required >
+                          
+
+                      </div>
+                      
+    
+                        </div>
+                        <div class="row justify-content-center" ng-show="errormessage">
+                          <div class="alert alert-success  alert-dismissible fade show text-center mx-5 col-md-6" role="alert">
+                              <strong>Enter all fields</strong>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                    
+                      </div>
+                       
+                            <div class="form-row ml-2 mt-2 mb-3 justify-content-center">
+                              <div class="col-md-2 form-group">
+                                  <button type="button" class="btn btn-outline-success" ng-click="submitbooking()">Submit</button>
+        
+                              </div>
+    
+                            </div>
+                  </div>
+                  <div ng-show="sorry" class="text-center ">
+                    <h1 class="ml-2 mt-2 py-2 font-weight-normal ">OOPS!</h1>
+                    <p>you have trip on these days</p>
+                    <a href="bookedpackages.html" class="btn btn-warning text-white">GO TO BOOKED PACKAGES</a>
+                  </div>
+                  <div class="row" style="margin-top:2rem">
+
+                  </div>
+                  
+                        
+  
+                      
+              </form>
+              <div class="modal fade" id="bookingSuccessModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                      <h5 class="modal-title">Booking Confirmed</h5>
+                      <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p class="mb-2">Your booking is confirmed. A receipt has been sent to your email.</p>
+                      <p class="mb-0"><strong>Package:</strong> {{confirmData.packagename}}</p>
+                      <p class="mb-0"><strong>Start:</strong> {{confirmData.depaturedate}}</p>
+                      <p class="mb-0"><strong>Total:</strong> Rs {{confirmData.totalcost}}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="bookedpackages.html" class="btn btn-primary">View Bookings</a>
+                      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-bottom: 5rem">
+
+                </div>
+
+       </div>
+    </main>

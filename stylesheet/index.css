@@ -1,0 +1,74 @@
+html,
+body,
+header,
+#intro
+{
+    height: 100%;
+    
+}
+#main
+{
+  margin-top:-1rem;
+}
+
+
+
+#intro {
+ 
+  background: url("../img/pexels.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+  
+  
+  
+  .card-title
+  {
+    
+    color: rgba(228, 83, 57, 0.952);
+    background-color: white;
+  }
+  .card-img-top
+  {
+    height: 15rem;
+  }
+ 
+
+  #viewall
+  {
+    background-color:transparent; 
+  color: black; 
+  border: 1px solid black;
+  
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
+  #viewall:hover
+  {
+    background-color:#ff9900;
+  color: white;
+  }
+
+@media (max-width: 768px) {
+  #intro {
+    background-attachment: scroll;
+  }
+  .card-img-top {
+    height: 11rem;
+  }
+  #main {
+    margin-top: 0;
+  }
+}
+ 

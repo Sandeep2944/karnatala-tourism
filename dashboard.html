@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Karunadu Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet/dashboard.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body class="bg-hero" ng-app="dashboard" ng-controller="dashboardctrl">
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand font-weight-bold" href="index.html">Karunadu</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto align-items-lg-center">
+          <li class="nav-item active"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li class="nav-item"><a href="packages.html" class="nav-link">Packages</a></li>
+          <li class="nav-item"><a href="bookedpackages.html" class="nav-link">My Bookings</a></li>
+          <li class="nav-item"><a href="profile.html" class="nav-link">Profile</a></li>
+          <li class="nav-item">
+            <button class="btn btn-warning btn-sm ml-lg-3" ng-click="logout()">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container-fluid px-0">
+    <section class="hero-section">
+      <div class="container hero-card">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <p class="eyebrow">Karnataka Tourism Hub</p>
+            <h1 class="display-title">Welcome to your travel dashboard</h1>
+            <p class="lead-text">Hi {{userEmail}}, pick a slot, reserve your spot, and start exploring Karnataka with curated experiences.</p>
+            <div class="hero-actions">
+              <a href="packages.html" class="btn btn-dark btn-lg">Explore Packages</a>
+              <a href="bookedpackages.html" class="btn btn-outline-dark btn-lg ml-2">View Bookings</a>
+            </div>
+          </div>
+          <div class="col-lg-5 mt-4 mt-lg-0">
+            <div class="stats-panel">
+              <div class="stat">
+                <span class="stat-label">Next Slots</span>
+                <span class="stat-value">06</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Cities Covered</span>
+                <span class="stat-value">12</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Avg. Rating</span>
+                <span class="stat-value">4.8</span>
+              </div>
+            </div>
+            <div class="hero-badge">
+              <i class="fas fa-map-marked-alt"></i>
+              <span>Verified Karnataka Tourism Experiences</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container slot-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Booking Slots</h2>
+          <p class="section-subtitle">Popular experiences with fixed time windows, similar to Karnataka Tourism slot system.</p>
+        </div>
+        <div class="filter-chip">
+          <i class="far fa-calendar-alt"></i>
+          <span>{{today | date:'EEEE, MMM d'}}</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12" ng-show="slotError">
+          <div class="alert alert-warning">
+            Unable to load live slots. Please start the backend server.
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4" ng-repeat="slot in slots">
+          <div class="slot-card">
+            <div class="slot-header">
+              <span class="slot-tag">{{slot.tag}}</span>
+              <span class="slot-price">{{slot.price}}</span>
+            </div>
+            <h3 class="slot-title">{{slot.title}}</h3>
+            <p class="slot-meta">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>{{slot.location}}</span>
+            </p>
+            <p class="slot-meta">
+              <i class="far fa-clock"></i>
+              <span>{{slot.date}} - {{slot.time}}</span>
+            </p>
+            <div class="availability">
+              <div class="availability-text">
+                <span>{{slot.availability}} seats left</span>
+                <span>{{slot.capacity}} total</span>
+              </div>
+              <div class="availability-bar">
+                <div class="availability-fill" ng-style="{'width': (slot.availability / slot.capacity * 100) + '%'}"></div>
+              </div>
+            </div>
+            <div class="slot-actions">
+              <a href="packages.html" class="btn btn-warning btn-block">Book This Slot</a>
+              <button class="btn btn-link btn-block text-dark">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container quick-section">
+      <div class="quick-grid">
+        <div class="quick-card">
+          <i class="fas fa-bus-alt"></i>
+          <h4>Transport Ready</h4>
+          <p>Comfort travel options aligned with your slot time.</p>
+        </div>
+        <div class="quick-card">
+          <i class="fas fa-hotel"></i>
+          <h4>Stay Suggestions</h4>
+          <p>Curated stays near every destination.</p>
+        </div>
+        <div class="quick-card">
+          <i class="fas fa-utensils"></i>
+          <h4>Food Trails</h4>
+          <p>Local cuisine stops built into the itinerary.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container gallery-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Project Image Gallery</h2>
+          <p class="section-subtitle">All images bundled in the project, shown directly on the dashboard.</p>
+        </div>
+      </div>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </section>
+  </main>
+
+  <footer class="dashboard-footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <p class="mb-2 mb-md-0">Karunadu Tourism - Karnataka, India</p>
+      <div class="footer-links">
+        <a href="about1.html">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#packages">Packages</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

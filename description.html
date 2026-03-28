@@ -1,0 +1,130 @@
+<main>
+      <div class="row" style="margin-top: 5rem">
+    
+        </div>
+<section id="gallery" ng-controller="descriptionController">
+  <h2 class="mb-5 font-weight-bold text-center text-warning">PACKAGE&thinsp;<span style="color:black">DETAILS</span></h2>
+ <div class="container" ng-repeat="data in details">
+
+
+    <!--Grid row-->
+ <div class="row  border-warning shadow  rounded" style="border-width:medium;">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4 mt-5">
+
+<!--Carousel Wrapper-->
+<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+       
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+          <!--First slide-->
+          <div class="carousel-item active carousel-fade">
+            <img class="d-block w-100 " ng-src="{{data.slides[0]}}" loading="lazy" alt="First slide" onerror="this.src='img/pexels.jpg'">
+          </div>
+          <!--/First slide-->
+          <!--Second slide-->
+          <div class="carousel-item carousel-fade" ng-repeat="img in data.slides">
+            <img class="d-block w-100 " ng-src="{{img}}" loading="lazy" alt="Slide image" onerror="this.src='img/pexels.jpg'">
+          </div>
+         
+        </div>
+        <!--/.Slides-->
+        <!--Controls-->
+        <button class="carousel-control-prev btn btn-link" href="#carousel-example-1z" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </button>
+          <button class="carousel-control-next btn btn-link " href="#carousel-example-1z" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </button>
+          <!--/.Controls-->
+      </div>
+      <!--/.Carousel Wrapper-->
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mt-2 mb-3">
+
+
+
+    <h4 class="mb-3 font-weight-bold text-warning" style="text-transform: uppercase"><strong>{{data.name}} package</strong></h4>
+    
+    <p>{{data.description}}</p> 
+                  <p><b>Visiting places :</b>{{data.places}}  </p>
+                  <p><b>Duration : </b> {{data.duration}}&thinsp;Days</p>
+                  <p><b>Start date : </b>{{data.depaturedate}}&thinsp; &thinsp;<b>End date :</b>{{data.enddate}}</p>
+                  <p><b>Depature address : </b>{{data.depatureaddress}}</p>
+                  <p><b><strong>Total cost : &thinsp;</strong></b><strong>Rs</strong>&thinsp;{{data.cost}}&thinsp;per person </p>
+    <a class="btn btn-primary btn-lg w-15" href="#!booking{{data._id}}">BOOK</a>
+          
+  </div>
+        <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+    <!--grid row-->
+    <hr>
+ <div class="row ">
+   <div class="col">
+      <h3 class="text-center font-weight-bold">Package Itinerary</h3>
+   </div>
+           
+           
+   </div>
+   <div class="row">
+     
+        <div class="col ">
+          <ul>
+                <li ng-repeat="d in data.itinerary">{{d}} </li>
+                
+                
+                
+            </ul>
+            
+                 
+                  
+              
+          </div>
+
+     
+
+   </div>
+   <hr>
+   <div class="row ">
+      <div class="col">
+         <h3 class="text-center font-weight-bold">Inclusion</h3>
+      </div>
+              
+              
+      </div>
+      
+      <div class="row align-items-center">
+          <div class="col">
+              <ul>
+                  <li>Accommodation in selected category hotel (NA for Day Trips)</li>
+                  <li>Breakfast, except on Check-in Date (NA for Day Trips & Govt Properties)</li>
+                  <li>Sightseeing as per Itinerary by Private Cab</li>
+                  <li>Parking & Toll Charges</li>
+                  <li>Driver Allowance</li>
+                  <li>Inter-state Entry Tax, if applicable</li>
+                  <li>Pickup & Drop from Your Origin City (Optional)</li>
+                  <li>Total fare includes GST</li>
+              </ul>
+          </div>
+                  
+                  
+          </div>
+    
+    <div class="row" style="margin-bottom: 5rem">
+
+                </div>
+
+</div>
+</section>
+
+   </main>
+   

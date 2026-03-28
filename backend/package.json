@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "optimize-images": "node scripts/optimize-images.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "bcryptjs": "^2.4.3",
+    "mongoose": "^5.4.10",
+    "nodemailer": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "sharp": "^0.33.5"
+  }
+}
